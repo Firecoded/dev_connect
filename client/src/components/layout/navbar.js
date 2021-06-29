@@ -1,27 +1,33 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import {connect} from "react-redux";
-import PropTypes from "prop-types"
-import {logout} from "../../actions/auth"
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
 
 const mapStateToProps = (state) => ({
-    auth: state.auth
-})
+    auth: state.auth,
+});
 
-
-export const NavBar = connect(mapStateToProps, {logout})(({auth: {isAuthenticated, loading}, logout}) => {
+export const NavBar = connect(mapStateToProps, { logout })(({ auth: { isAuthenticated, loading }, logout }) => {
     const buildLinks = () => {
-        if(loading) {
-            return <Fragment/>
+        if (loading) {
+            return <Fragment />;
         }
         if (isAuthenticated) {
             return (
-                <ul>   
+                <ul>
                     <li>
-                        <a onClick={logout} href="#!"><i className="fas fa-sign-out-alt"/>{" "}<span className="hide-sm">Logout</span></a>
+                        <Link to="/dashboard">
+                            <i className="fas fa-user" /> <span className="hide-sm">Dashboard</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <a onClick={logout} href="#!">
+                            <i className="fas fa-sign-out-alt" /> <span className="hide-sm">Logout</span>
+                        </a>
                     </li>
                 </ul>
-            )
+            );
         } else {
             return (
                 <ul>
@@ -35,9 +41,9 @@ export const NavBar = connect(mapStateToProps, {logout})(({auth: {isAuthenticate
                         <Link to="/login">Login</Link>
                     </li>
                 </ul>
-            )
+            );
         }
-    }
+    };
 
     return (
         <nav className="navbar bg-dark">
@@ -54,4 +60,4 @@ export const NavBar = connect(mapStateToProps, {logout})(({auth: {isAuthenticate
 NavBar.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-}
+};

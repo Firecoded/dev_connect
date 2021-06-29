@@ -44,6 +44,14 @@ img {
     margin-bottom: 3rem;
 }
 
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
 /* Text Styles*/
 .x-large {
     font-size: 4rem;
