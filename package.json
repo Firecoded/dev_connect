@@ -9,7 +9,8 @@
         "server": "nodemon server",
         "client": "npm start --prefix client",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "clean": "npx kill-port 3000 5000"
+        "clean": "npx kill-port 3000 5000",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
     },
     "author": "Firecoded",
     "license": "MIT",
