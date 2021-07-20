@@ -3,7 +3,6 @@ const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const config = require("config");
 const { check, validationResult } = require("express-validator");
 const normalize = require("normalize-url");
 
@@ -60,7 +59,7 @@ router.post(
                 },
             };
 
-            jwt.sign(payload, config.get("jwtSecret"), { expiresIn: "5 days" }, (err, token) => {
+            jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "5 days" }, (err, token) => {
                 if (err) throw err;
                 res.json({ token });
             });

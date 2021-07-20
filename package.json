@@ -1,5 +1,5 @@
 {
-    "name": "dev_connect",
+    "name": "dev_hub",
     "version": "1.0.0",
     "description": "Social app made with MERN stack",
     "main": "server.js",
@@ -18,14 +18,14 @@
         "axios": "^0.21.0",
         "bcryptjs": "^2.4.3",
         "client": "file:client",
-        "config": "^3.3.6",
+        "dotenv": "^10.0.0",
         "express": "^4.17.1",
         "express-validator": "^6.11.1",
         "gravatar": "^1.8.1",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.12.10",
-        "request": "^2.88.2",
-        "normalize-url": "^5.3.0"
+        "normalize-url": "^5.3.0",
+        "request": "^2.88.2"
     },
     "devDependencies": {
         "concurrently": "^6.1.0",
