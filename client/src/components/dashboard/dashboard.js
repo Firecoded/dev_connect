@@ -12,6 +12,8 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
         getCurrentProfile();
     }, [getCurrentProfile]);
 
+    console.log(user, profile);
+
     return (
         <Fragment>
             <h1 className="large text-primary">Dashboard</h1>
@@ -20,7 +22,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
             </p>
             {profile !== null ? (
                 <Fragment>
-                    <DashboardActions profile={profile} />
+                    <DashboardActions id={user._id} />
                     <Experience experience={profile.experience} />
                     <Education education={profile.education} />
 

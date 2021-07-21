@@ -2,19 +2,15 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 export const DashboardActions = (props) => {
-    const buildViewProfile = () => {
-        if (props.profile && props.profile.user?._id) {
-            return (
-                <Link to={`/profile/${props.profile.user._id}`} className="btn btn-light">
-                    <i className="fas fa-user-circle text-primary"></i> View Profile
-                </Link>
-            );
-        }
-        return <Fragment />;
-    };
     return (
         <div className="dash-buttons">
-            {buildViewProfile()}
+            {props.id ? (
+                <Link to={`/profile/${props.id}`} className="btn btn-light">
+                    <i className="fas fa-user-circle text-primary"></i> View Profile
+                </Link>
+            ) : (
+                <Fragment />
+            )}
             <Link to="/edit-profile" className="btn btn-light">
                 <i className="fas fa-user-cog text-primary"></i> Edit Profile
             </Link>
