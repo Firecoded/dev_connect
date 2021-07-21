@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-export const DashboardActions = (props) => {
+export const DashboardActions = ({ id }) => {
     return (
         <div className="dash-buttons">
-            {props.id ? (
-                <Link to={`/profile/${props.id}`} className="btn btn-light">
+            {id ? (
+                <Link to={`/profile/${id}`} className="btn btn-light">
                     <i className="fas fa-user-circle text-primary"></i> View Profile
                 </Link>
             ) : (

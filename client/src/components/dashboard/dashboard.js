@@ -12,8 +12,6 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
         getCurrentProfile();
     }, [getCurrentProfile]);
 
-    console.log(user, profile);
-
     return (
         <Fragment>
             <h1 className="large text-primary">Dashboard</h1>
