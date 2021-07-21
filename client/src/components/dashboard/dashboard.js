@@ -20,7 +20,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
             </p>
             {profile !== null ? (
                 <Fragment>
-                    <DashboardActions />
+                    <DashboardActions id={user._id} />
                     <Experience experience={profile.experience} />
                     <Education education={profile.education} />
 
