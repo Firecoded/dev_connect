@@ -11,7 +11,7 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
-import "./app.css";
+import "./styles/styles.scss";
 
 const App = () => {
     useEffect(() => {
