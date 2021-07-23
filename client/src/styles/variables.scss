@@ -1,0 +1,22 @@
+$primary-blue: #9bf6ff;
+$secondary-blue: #a0c4ff;
+
+$primary-highlight: #bdb2ff;
+$secondary-highlight: #ffc6ff;
+
+$white1: #fffffc;
+$gray2: #f7f7f9;
+$gray3: #e5e5e5;
+$gray8: #888888;
+
+$dark1: #353b40;
+
+$danger: #ffadad;
+$warning: #ffd6a5;
+$info: #fdffb6;
+$success: #caffbf;
+
+@mixin background-gradient {
+    background: $secondary-highlight;
+    background: linear-gradient(90deg, $secondary-highlight 0%, $success 65%, $primary-blue 100%);
+}
