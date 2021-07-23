@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
+import ThemeToggle from "./theme-toggle";
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     const authLinks = (
@@ -42,11 +43,12 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 
     return (
         <nav className="navbar bg-dark">
-            <h1>
+            <h4>
+                <ThemeToggle />
                 <Link to="/">
                     <i className="fas fa-code" /> DevHub
                 </Link>
-            </h1>
+            </h4>
             <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
         </nav>
     );

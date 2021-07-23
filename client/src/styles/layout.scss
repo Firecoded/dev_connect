@@ -1,11 +1,4 @@
 /* Global Styles */
-:root {
-    --primary-color: #17a2b8;
-    --dark-color: #343a40;
-    --light-color: #f4f4f4;
-    --danger-color: #dc3545;
-    --success-color: #28a745;
-}
 
 * {
     box-sizing: border-box;
@@ -17,12 +10,9 @@ body {
     font-family: "Raleway", sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    background-color: #fff;
-    color: #333;
 }
 
 a {
-    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -57,17 +47,15 @@ img {
 }
 
 .text-primary {
-    color: var(--primary-color);
+    // color: var(--primary-color);
 }
 
 .text-dark {
-    color: var(--dark-color);
+    // color: var(--dark-color);
 }
 
 .btn {
     display: inline-block;
-    background: var(--light-color);
-    color: #333;
     padding: 0.5rem 1.4rem 0.3rem 1.4rem;
     /* temp fix for line-height */
     font-size: 1rem;
@@ -84,65 +72,61 @@ img {
     padding: 0.1rem;
     text-align: center;
     margin: 0.3rem;
-    background: var(--light-color);
-    color: #333;
 }
 
 .alert {
     padding: 0.8rem;
     margin: 1rem 0;
     opacity: 0.9;
-    background: var(--light-color);
-    color: #333;
 }
 
 .btn-primary,
 .bg-primary,
 .badge-primary,
 .alert-primary {
-    background: var(--primary-color);
-    color: #fff;
+    // background: var(--primary-color);
+    // color: #fff;
 }
 
 .btn-light,
 .bg-light,
 .badge-light,
 .alert-light {
-    background: var(--light-color);
-    color: #333;
+    // background: var(--light-color);
+    // color: #333;
 }
 
 .btn-dark,
 .bg-dark,
 .badge-dark,
 .alert-dark {
-    background: var(--dark-color);
-    color: #fff;
+    // background: var(--dark-color);
+    // color: #fff;
 }
 
 .btn-danger,
 .bg-danger,
 .badge-danger,
 .alert-danger {
-    background: var(--danger-color);
-    color: #fff;
+    // background: var(--danger-color);
+    // color: #fff;
 }
 
 .btn-success,
 .bg-success,
 .badge-success,
 .alert-success {
-    background: var(--success-color);
-    color: #fff;
+    // background: var(--success-color);
+    // color: #fff;
 }
 
 .btn-white,
 .bg-white,
 .badge-white,
 .alert-white {
-    background: #fff;
-    color: #333;
-    border: #ccc solid 1px;
+    // background: #fff;
+    // color: #333;
+    // border: #ccc solid 1px;
 }
 
 .btn:hover {
@@ -151,7 +135,7 @@ img {
 
 .bg-light,
 .badge-light {
-    border: #ccc solid 1px;
+    // border: #ccc solid 1px;
 }
 
 .round-img {
@@ -160,13 +144,11 @@ img {
 
 .line {
     height: 1px;
-    background: #ccc;
     margin: 1.5rem 0;
 }
 
 /* Overlay */
 .dark-overlay {
-    background-color: rgba(37, 37, 37, 0.55);
     position: absolute;
     top: 0;
     left: 0;
@@ -182,7 +164,6 @@ img {
 .form .form-text {
     display: block;
     margin-top: 0.3rem;
-    color: #888;
 }
 
 .form input[type="text"],
@@ -195,7 +176,6 @@ img {
     width: 100%;
     padding: 0.4rem;
     font-size: 1.2rem;
-    border: 1px solid #ccc;
 }
 
 .form input[type="submit"],
@@ -235,7 +215,7 @@ button {
 }
 
 .table th {
-    background: var(--light-color);
+    // background: var(--light-color);
 }
 
 /* Navbar */
@@ -248,7 +228,6 @@ button {
     z-index: 1;
     width: 100%;
     top: 0;
-    border-bottom: solid 1px var(--primary-color);
     opacity: 0.9;
 }
 
@@ -256,14 +235,8 @@ button {
     display: flex;
 }
 
-.navbar a {
-    color: #fff;
-    padding: 0.45rem;
-    margin: 0 0.25rem;
-}
-
 .navbar a:hover {
-    color: var(--primary-color);
+    // color: var(--primary-color);
 }
 
 .navbar .welcome span {
@@ -278,7 +251,6 @@ button {
 }
 
 .landing-inner {
-    color: #fff;
     height: 100%;
     width: 80%;
     margin: auto;
@@ -322,15 +294,6 @@ button {
 
 .profile-top img {
     width: 250px;
-}
-
-.profile-top .icons a {
-    color: #fff;
-    margin: 0 0.3rem;
-}
-
-.profile-top .icons a:hover {
-    color: var(--dark-color);
 }
 
 .profile-about {
@@ -394,10 +357,6 @@ button {
 }
 
 /* Posts Page */
-.post-form .post-form-header {
-    background: var(--primary-color);
-    padding: 0.5rem;
-}
 
 .post {
     display: grid;
@@ -415,17 +374,12 @@ button {
 }
 
 .post .comment-count {
-    background: var(--light-color);
-    color: var(--primary-color);
-    padding: 0.1rem 0.2rem;
     border-radius: 5px;
     font-size: 0.8rem;
 }
 
 .post .post-date {
-    color: #aaa;
     font-size: 0.8rem;
-    margin-bottom: 0.5rem;
 }
 
 /* Mobile Styles */
