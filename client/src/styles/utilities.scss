@@ -1,6 +1,6 @@
 .container {
     max-width: 1100px;
-    margin: auto;
+    margin: 10px auto 0 auto;
     overflow: hidden;
     padding: 0 2rem;
     margin-top: 6rem;
@@ -13,6 +13,10 @@
 
 .justify-content-center {
     justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
 }
 
 /* Padding/Margin */

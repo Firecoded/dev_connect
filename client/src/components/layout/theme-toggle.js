@@ -8,15 +8,19 @@ const ThemeToggle = ({ theme, setTheme }) => {
     const onClick = () => {
         setTheme(theme.themeName === "light" ? "dark" : "light");
     };
-    return <div onClick={onClick}>THEME TOGGLE</div>;
+    return (
+        <div onClick={onClick} className="pr-2">
+            THEME TOGGLE
+        </div>
+    );
 };
 
 ThemeToggle.propTypes = {
     theme: PropTypes.object.isRequired,
+    setTheme: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-    setTheme: PropTypes.func.isRequired,
     theme: state.theme,
 });
 
