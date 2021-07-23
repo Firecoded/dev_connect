@@ -245,7 +245,7 @@ button {
 /* Landing Page */
 .landing {
     // @include background-gradient;
-    // height: 100vh;
+    height: calc(100vh - 65px);
 }
 
 .landing-inner {

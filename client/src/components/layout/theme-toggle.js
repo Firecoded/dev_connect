@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setTheme } from "../../actions/theme";
 
 const ThemeToggle = ({ theme, setTheme }) => {
     console.log("THEME", theme);
+    useEffect(() => {
+        const themeOnLoad = localStorage.getItem("themeOnLoad");
+        if (themeOnLoad) {
+            setTheme(themeOnLoad);
+        }
+    }, [setTheme]);
+
     const onClick = () => {
         setTheme(theme.themeName === "light" ? "dark" : "light");
     };

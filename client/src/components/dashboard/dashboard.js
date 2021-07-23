@@ -18,7 +18,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
             <p className="lead">
                 <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
-            {profile !== null ? (
+            {profile && user ? (
                 <Fragment>
                     <DashboardActions id={user._id} />
                     <Experience experience={profile.experience} />

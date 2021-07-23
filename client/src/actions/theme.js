@@ -45,6 +45,13 @@ export const THEMES = {
 
 export const setTheme = (themeName) => (dispatch) => {
     const themeData = THEMES[themeName];
+    localStorage.setItem("themeOnLoad", themeName);
+    document.body.className = "";
+    themeData.background1.split(" ").map((c) => {
+        if (c) {
+            document.body.classList.add(c);
+        }
+    });
     dispatch({
         type: SET_THEME,
         payload: { ...themeData },

@@ -13,7 +13,7 @@ export const Landing = connect(mapStateToProps)(({ isAuthenticated, theme }) => 
         return <Redirect to="/dashboard" />;
     }
     return (
-        <section className={`vh-100 ${theme.background1} ${theme.textWhite}`}>
+        <section className={`landing ${theme.background1} ${theme.textWhite}`}>
             <div className="landing-inner">
                 <h1 className="x-large">Hub for Developers</h1>
                 <p className="lead">

@@ -9,22 +9,22 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
     const authLinks = (
         <ul className="d-flex align-items-center">
             <li>
-                <Link to="/profiles" className="p-0 pr-3">
+                <Link to="/profiles" className="p-0 px-2">
                     Developers
                 </Link>
             </li>
             <li>
-                <Link to="/posts" className="p-0 pr-3">
+                <Link to="/posts" className="p-0 px-2">
                     Posts
                 </Link>
             </li>
             <li>
-                <Link to="/dashboard" className="d-flex align-items-center p-0 pr-3">
+                <Link to="/dashboard" className="d-flex align-items-center p-0 px-2">
                     <i className="fas fa-user valign-wrapper mr-1" /> <span className="hide-sm">Dashboard</span>
                 </Link>
             </li>
             <li>
-                <a onClick={logout} href="#!" className="d-flex align-items-center p-0 pr-1">
+                <a onClick={logout} href="#!" className="d-flex align-items-center p-0 px-2 pr-1">
                     <i className="fas fa-sign-out-alt valign-wrapper mr-1" /> <span className="hide-sm">Logout</span>
                 </a>
             </li>
@@ -34,17 +34,17 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
     const guestLinks = (
         <ul className="d-flex align-items-center">
             <li>
-                <Link to="/profiles" className="p-0 pr-3">
+                <Link to="/profiles" className="p-0 px-2">
                     Developers
                 </Link>
             </li>
             <li>
-                <Link to="/register" className="p-0 pr-3">
+                <Link to="/register" className="p-0 px-2">
                     Register
                 </Link>
             </li>
             <li>
-                <Link to="/login" className="p-0 pr-1">
+                <Link to="/login" className="p-0 px-2 pr-1">
                     Login
                 </Link>
             </li>
@@ -53,9 +53,9 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
 
     return (
         <Fragment>
-            <nav className={`navbar ${theme.background1} ${theme.textWhite}`}>
+            <nav className={`navbar ${theme.background2} ${theme.textWhite}`}>
                 <Link to="/" className="d-flex align-items-center">
-                    <h4 className="d-flex align-items-center valign-wrapper p-0 m-0">
+                    <h4 className="d-flex align-items-center valign-wrapper p-0 px-2 m-0">
                         <span className={`${theme.brandText1}`}>{`<`}</span>
                         <span className={`${theme.brandText1}`}>Dev</span>
                         <span className={`${theme.brandText2}`}>Hub</span>
@@ -68,7 +68,7 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
                 </span>
                 <Fragment></Fragment>
             </nav>
-            <div className="fixed-spacer"></div>
+            <div className={`fixed-spacer ${theme.background1}`}></div>
         </Fragment>
     );
 };
