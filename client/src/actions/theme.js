@@ -26,7 +26,7 @@ export const THEMES = {
         primaryVariant: "",
         secondary: "",
         secondaryVariant: "",
-        background1: "",
+        background1: "white",
         background2: "",
         background3: "",
         danger: "",
