@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Register from "../auth/register";
 import Login from "../auth/login";
 import Alert from "../layout/alert";
@@ -14,26 +16,36 @@ import Post from "../post/post";
 import NotFound from "../layout/not-found";
 import PrivateRoute from "../routing/private-route";
 
-const Routes = (props) => {
+const Routes = ({ theme }) => {
     return (
-        <section className="container">
-            <Alert />
-            <Switch>
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/profiles" component={Profiles} />
-                <Route exact path="/profile/:id" component={Profile} />
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                <PrivateRoute exact path="/create-profile" component={ProfileForm} />
-                <PrivateRoute exact path="/edit-profile" component={ProfileForm} />
-                <PrivateRoute exact path="/add-experience" component={AddExperience} />
-                <PrivateRoute exact path="/add-education" component={AddEducation} />
-                <PrivateRoute exact path="/posts" component={Posts} />
-                <PrivateRoute exact path="/posts/:id" component={Post} />
-                <Route component={NotFound} />
-            </Switch>
-        </section>
+        <div className={`vh-100 ${theme.background1} ${theme.textWhite}`}>
+            <section className="container">
+                <Alert />
+                <Switch>
+                    <Route exact path="/register" component={Register} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/profiles" component={Profiles} />
+                    <Route exact path="/profile/:id" component={Profile} />
+                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                    <PrivateRoute exact path="/create-profile" component={ProfileForm} />
+                    <PrivateRoute exact path="/edit-profile" component={ProfileForm} />
+                    <PrivateRoute exact path="/add-experience" component={AddExperience} />
+                    <PrivateRoute exact path="/add-education" component={AddEducation} />
+                    <PrivateRoute exact path="/posts" component={Posts} />
+                    <PrivateRoute exact path="/posts/:id" component={Post} />
+                    <Route component={NotFound} />
+                </Switch>
+            </section>
+        </div>
     );
 };
 
-export default Routes;
+Routes.propTypes = {
+    theme: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    theme: state.theme,
+});
+
+export default connect(mapStateToProps)(Routes);

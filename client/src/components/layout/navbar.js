@@ -55,10 +55,11 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
         <Fragment>
             <nav className={`navbar ${theme.background1} ${theme.textWhite}`}>
                 <Link to="/" className="d-flex align-items-center">
-                    <i className="fas fa-code valign-wrapper mr-2" />
                     <h4 className="d-flex align-items-center valign-wrapper p-0 m-0">
-                        <span className={``}>Dev</span>
-                        <span>Hub</span>
+                        <span className={`${theme.brandText1}`}>{`<`}</span>
+                        <span className={`${theme.brandText1}`}>Dev</span>
+                        <span className={`${theme.brandText2}`}>Hub</span>
+                        <span className={`${theme.brandText1}`}>{`/>`}</span>
                     </h4>
                 </Link>
                 <span className="d-flex align-items-center">
@@ -75,6 +76,7 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
 Navbar.propTypes = {
     logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
