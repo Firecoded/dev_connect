@@ -101,6 +101,7 @@ const AddEducation = ({ addEducation, history, theme }) => {
                         placeholder="Program Description"
                         value={description}
                         onChange={onChange}
+                        className={`${theme.textWhite}`}
                     />
                 </div>
                 <input className={`${theme.textWhite}`} type="submit" className={`btn my-1 mr-2 ${theme.primary}`} />

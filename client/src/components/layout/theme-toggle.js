@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setTheme } from "../../actions/theme";
 
 const ThemeToggle = ({ theme, setTheme }) => {
+    const themeOnLoad = localStorage.getItem("themeOnLoad");
+    const [isEnabled, setIsEnabled] = useState(themeOnLoad && themeOnLoad === "dark" ? true : false);
     console.log("THEME", theme);
     useEffect(() => {
-        const themeOnLoad = localStorage.getItem("themeOnLoad");
         if (themeOnLoad) {
             setTheme(themeOnLoad);
         }
@@ -14,11 +15,19 @@ const ThemeToggle = ({ theme, setTheme }) => {
 
     const onClick = () => {
         setTheme(theme.themeName === "light" ? "dark" : "light");
+        setIsEnabled(!isEnabled);
     };
     return (
-        <div onClick={onClick} className="pr-2">
-            THEME TOGGLE
-        </div>
+        <label className="toggle-wrapper pr-2" htmlFor="toggle">
+            <div className={`toggle ${isEnabled ? "enabled" : "disabled"} ${theme.primary} ${theme.themeName}`}>
+                <span className="hidden">{isEnabled ? "Enable" : "Disable"}</span>
+                <div className="icons">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <input id="toggle" name="toggle" type="checkbox" checked={isEnabled} onClick={onClick} />
+            </div>
+        </label>
     );
 };
 

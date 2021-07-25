@@ -14,17 +14,17 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
                 </Link>
             </li>
             <li>
-                <Link to="/posts" className="p-0 px-2">
+                <Link to="/posts" className="p-0 pr-2">
                     Posts
                 </Link>
             </li>
             <li>
-                <Link to="/dashboard" className="d-flex align-items-center p-0 px-2">
+                <Link to="/dashboard" className="d-flex align-items-center p-0 px-2 hide-sm">
                     <i className="fas fa-user valign-wrapper mr-1" /> <span className="hide-sm">Dashboard</span>
                 </Link>
             </li>
             <li>
-                <a onClick={logout} href="#!" className="d-flex align-items-center p-0 px-2 pr-1">
+                <a onClick={logout} href="#!" className="d-flex align-items-center p-0 px-2">
                     <i className="fas fa-sign-out-alt valign-wrapper mr-1" /> <span className="hide-sm">Logout</span>
                 </a>
             </li>
@@ -51,18 +51,30 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
         </ul>
     );
 
+    const logo = () => {
+        return (
+            <Fragment>
+                <h4 className="p-0 px-2 m-0 hide-sm logo">
+                    <span className={`${theme.brandText1}`}>{`<`}</span>
+                    <span className={`${theme.brandText1}`}>Dev</span>
+                    <span className={`${theme.brandText2}`}>Hub</span>
+                    <span className={`${theme.brandText1}`}>{`/>`}</span>
+                </h4>
+                <h4 className="p-0 pl-2 m-0 pl-4 show-sm left logo">
+                    <span className={`${theme.brandText1}`}>D</span>
+                    <span className={`${theme.brandText2}`}>H</span>
+                </h4>
+            </Fragment>
+        );
+    };
+
     return (
         <Fragment>
             <nav className={`navbar ${theme.background2} ${theme.textWhite}`}>
-                <Link to="/" className="d-flex align-items-center">
-                    <h4 className="d-flex align-items-center valign-wrapper p-0 px-2 m-0">
-                        <span className={`${theme.brandText1}`}>{`<`}</span>
-                        <span className={`${theme.brandText1}`}>Dev</span>
-                        <span className={`${theme.brandText2}`}>Hub</span>
-                        <span className={`${theme.brandText1}`}>{`/>`}</span>
-                    </h4>
+                <Link to="/" className="">
+                    {logo()}
                 </Link>
-                <span className="d-flex align-items-center">
+                <span className="d-flex align-items-center right">
                     <ThemeToggle />
                     {isAuthenticated ? authLinks : guestLinks}
                 </span>

@@ -13,9 +13,20 @@ const Education = ({ education, deleteEducation, theme }) => {
                 {formatDate(edu.from)} - {edu.to ? formatDate(edu.to) : "Now"}
             </td>
             <td>
-                <button onClick={() => deleteEducation(edu._id)} className={`btn btn-small ${theme.danger}`}>
-                    Delete
-                </button>
+                <Fragment>
+                    <button
+                        onClick={() => deleteEducation(edu._id)}
+                        className={`btn btn-small ${theme.danger} hide-on-small-only`}
+                    >
+                        Delete
+                    </button>
+                    <button
+                        onClick={() => deleteEducation(edu._id)}
+                        className={`btn btn-small ${theme.danger} hide-on-med-and-up`}
+                    >
+                        <i className="fa fa-times"></i>
+                    </button>
+                </Fragment>
             </td>
         </tr>
     ));
@@ -28,7 +39,7 @@ const Education = ({ education, deleteEducation, theme }) => {
                     <tr>
                         <th>School</th>
                         <th className="hide-sm">Degree</th>
-                        <th className="hide-sm">Years</th>
+                        <th className="">Years</th>
                         <th />
                     </tr>
                 </thead>

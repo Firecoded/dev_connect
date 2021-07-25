@@ -72,10 +72,15 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                 <i className="fas fa-user" />
                 {creatingProfile ? ` Let's get some information to make your` : " Add some changes to your profile"}
             </p>
-            <small>* = required field</small>
+            <div>* = required field</div>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-group">
-                    <select name="status" value={status} onChange={onChange}>
+                    <select
+                        name="status"
+                        value={status}
+                        onChange={onChange}
+                        className={`${theme.textWhite} ${theme.background1}`}
+                    >
                         <option>* Select Professional Status</option>
                         <option value="Developer">Developer</option>
                         <option value="Junior Developer">Junior Developer</option>

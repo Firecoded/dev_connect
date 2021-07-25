@@ -13,8 +13,17 @@ const Experience = ({ experience, deleteExperience, theme }) => {
                 {formatDate(exp.from)} - {exp.to ? formatDate(exp.to) : "Now"}
             </td>
             <td>
-                <button onClick={() => deleteExperience(exp._id)} className={`btn btn-small ${theme.danger}`}>
+                <button
+                    onClick={() => deleteExperience(exp._id)}
+                    className={`btn btn-small ${theme.danger} hide-on-small-only`}
+                >
                     Delete
+                </button>
+                <button
+                    onClick={() => deleteExperience(exp._id)}
+                    className={`btn btn-small ${theme.danger} hide-on-med-and-up`}
+                >
+                    <i className="fa fa-times"></i>
                 </button>
             </td>
         </tr>
@@ -28,7 +37,7 @@ const Experience = ({ experience, deleteExperience, theme }) => {
                     <tr>
                         <th>Company</th>
                         <th className="hide-sm">Title</th>
-                        <th className="hide-sm">Years</th>
+                        <th>Years</th>
                         <th />
                     </tr>
                 </thead>
