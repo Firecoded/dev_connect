@@ -7,33 +7,33 @@ import Experience from "./experience";
 import Education from "./education";
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 
-const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: { profile } }) => {
+const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: { profile }, theme }) => {
     useEffect(() => {
         getCurrentProfile();
     }, [getCurrentProfile]);
 
     return (
         <Fragment>
-            <h1 className="large text-primary">Dashboard</h1>
-            <p className="lead">
+            <h1 className={`large ${theme.brandText1}`}>Dashboard</h1>
+            <p className="lead mb-2">
                 <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
             {profile && user ? (
                 <Fragment>
-                    <DashboardActions id={user._id} />
+                    <DashboardActions id={user._id} theme={theme} />
                     <Experience experience={profile.experience} />
                     <Education education={profile.education} />
 
                     <div className="my-2">
-                        <button className="btn btn-danger" onClick={() => deleteAccount()}>
-                            <i className="fas fa-user-minus" /> Delete My Account
+                        <button className={`btn btn-small ${theme.danger}`} onClick={() => deleteAccount()}>
+                            <i className="fas fa-user-times" /> Delete Account
                         </button>
                     </div>
                 </Fragment>
             ) : (
                 <Fragment>
-                    <p>You have not yet setup a profile, please add some info</p>
-                    <Link to="/create-profile" className="btn btn-primary my-1">
+                    <p className="mb-2">You have not yet setup a profile, please add some info</p>
+                    <Link to="/create-profile" className={`btn my-1 btn-small ${theme.primary}`}>
                         Create Profile
                     </Link>
                 </Fragment>
@@ -47,11 +47,13 @@ Dashboard.propTypes = {
     deleteAccount: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     auth: state.auth,
     profile: state.profile,
+    theme: state.theme,
 });
 
 export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard);

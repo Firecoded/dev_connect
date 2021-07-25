@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addEducation } from "../../actions/profile";
 
-const AddEducation = ({ addEducation, history }) => {
+const AddEducation = ({ addEducation, history, theme }) => {
     const [formData, setFormData] = useState({
         school: "",
         degree: "",
@@ -21,13 +21,13 @@ const AddEducation = ({ addEducation, history }) => {
 
     return (
         <Fragment>
-            <h1 className="large text-primary">Add Your Education</h1>
+            <h3 className={`my-3 mb-3 mt-4 ${theme.brandText2}`}>Add Your Education</h3>
             <p className="lead">
                 <i className="fas fa-code-branch" /> Add any school or bootcamp that you have attended
             </p>
-            <small>* = required field</small>
+            <div>* = required field</div>
             <form
-                className="form"
+                className={`form ${theme.background1} ${theme.textWhite}`}
                 onSubmit={(e) => {
                     e.preventDefault();
                     addEducation(formData, history);
@@ -35,6 +35,7 @@ const AddEducation = ({ addEducation, history }) => {
             >
                 <div className="form-group">
                     <input
+                        className={`${theme.textWhite}`}
                         type="text"
                         placeholder="* School or Bootcamp"
                         name="school"
@@ -45,6 +46,7 @@ const AddEducation = ({ addEducation, history }) => {
                 </div>
                 <div className="form-group">
                     <input
+                        className={`${theme.textWhite}`}
                         type="text"
                         placeholder="* Degree or Certificate"
                         name="degree"
@@ -55,6 +57,7 @@ const AddEducation = ({ addEducation, history }) => {
                 </div>
                 <div className="form-group">
                     <input
+                        className={`${theme.textWhite}`}
                         type="text"
                         placeholder="Field of Study"
                         name="fieldofstudy"
@@ -63,12 +66,13 @@ const AddEducation = ({ addEducation, history }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <h4>From Date</h4>
-                    <input type="date" name="from" value={from} onChange={onChange} />
+                    <h5>From Date</h5>
+                    <input className={`${theme.textWhite}`} type="date" name="from" value={from} onChange={onChange} />
                 </div>
                 <div className="form-group">
                     <p>
                         <input
+                            className={`${theme.textWhite}`}
                             type="checkbox"
                             name="current"
                             checked={current}
@@ -79,8 +83,15 @@ const AddEducation = ({ addEducation, history }) => {
                     </p>
                 </div>
                 <div className="form-group">
-                    <h4>To Date</h4>
-                    <input type="date" name="to" value={to} onChange={onChange} disabled={current} />
+                    <h5>To Date</h5>
+                    <input
+                        className={`${theme.textWhite}`}
+                        type="date"
+                        name="to"
+                        value={to}
+                        onChange={onChange}
+                        disabled={current}
+                    />
                 </div>
                 <div className="form-group">
                     <textarea
@@ -92,8 +103,8 @@ const AddEducation = ({ addEducation, history }) => {
                         onChange={onChange}
                     />
                 </div>
-                <input type="submit" className="btn btn-primary my-1" />
-                <Link className="btn btn-light my-1" to="/dashboard">
+                <input className={`${theme.textWhite}`} type="submit" className={`btn my-1 mr-2 ${theme.primary}`} />
+                <Link className={`btn my-1 mr-2 ${theme.primaryVariant}`} to="/dashboard">
                     Go Back
                 </Link>
             </form>
@@ -103,6 +114,9 @@ const AddEducation = ({ addEducation, history }) => {
 
 AddEducation.propTypes = {
     addEducation: PropTypes.func.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
-export default connect(null, { addEducation })(AddEducation);
+const mapStateToProps = (state) => ({ theme: state.theme });
+
+export default connect(mapStateToProps, { addEducation })(AddEducation);

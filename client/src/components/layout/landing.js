@@ -15,15 +15,15 @@ export const Landing = connect(mapStateToProps)(({ isAuthenticated, theme }) => 
     return (
         <section className={`landing ${theme.background1} ${theme.textWhite}`}>
             <div className="landing-inner">
-                <h1 className="x-large">Hub for Developers</h1>
-                <p className="lead">
+                <h1 className="">Hub for Developers</h1>
+                <p className="lead mb-5">
                     Create a developer profile/portfolio, share posts and get help from other developers
                 </p>
                 <div className="buttons">
-                    <Link to="/register" className={`btn ${theme.primary}`}>
+                    <Link to="/register" className={`btn btn-large mr-4 ${theme.primary}`}>
                         Sign Up
                     </Link>
-                    <Link to="/login" className={`btn ${theme.primaryVariant}`}>
+                    <Link to="/login" className={`btn btn-large ${theme.primaryVariant}`}>
                         Login
                     </Link>
                 </div>
