@@ -10,19 +10,20 @@ const ProfileTop = ({
         social,
         user: { name, avatar },
     },
+    theme,
 }) => {
     return (
-        <div className="profile-top bg-primary p-2">
+        <div className={`profile-top p-5 ${theme.background2}`}>
             <img className="round-img my-1" src={avatar} alt="" />
-            <h1 className="large">{name}</h1>
+            <h1 className="large mt-3">{name}</h1>
             <p className="lead">
                 {status} {company ? <span> at {company}</span> : null}
             </p>
             <p>{location ? <span>{location}</span> : null}</p>
-            <div className="icons my-1">
+            <div className="icons my-2">
                 {website ? (
                     <a href={website} target="_blank" rel="noopener noreferrer">
-                        <i className="fas fa-globe fa-2x" />
+                        <i className={`fas fa-globe fa-2x ${theme.brandText1}`} />
                     </a>
                 ) : null}
                 {social
@@ -41,6 +42,7 @@ const ProfileTop = ({
 
 ProfileTop.propTypes = {
     profile: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 export default ProfileTop;

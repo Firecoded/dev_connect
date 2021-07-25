@@ -10,7 +10,7 @@ import ProfileEducation from "./profile-education";
 import ProfileGithub from "./profile-github";
 import { getProfileById } from "../../actions/profile";
 
-const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
+const Profile = ({ getProfileById, profile: { profile }, auth, match, theme }) => {
     useEffect(() => {
         getProfileById(match.params.id);
     }, [getProfileById, match.params.id]);
@@ -21,40 +21,40 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match }) => {
                 <Spinner />
             ) : (
                 <Fragment>
-                    <Link to="/profiles" className="btn btn-light">
+                    <Link to="/profiles" className={`my-3 mr-2 btn ${theme.primaryVariant}`}>
                         Back To Profiles
                     </Link>
                     {auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id && (
-                        <Link to="/edit-profile" className="btn btn-dark">
+                        <Link to="/edit-profile" className={`my-3 btn ${theme.primaryVariant}`}>
                             Edit Profile
                         </Link>
                     )}
-                    <div className="profile-grid my-1">
-                        <ProfileTop profile={profile} />
-                        <ProfileAbout profile={profile} />
-                        <div className="profile-exp bg-white p-2">
-                            <h2 className="text-primary">Experience</h2>
+                    <div className="profile-grid my-1 mb-3">
+                        <ProfileTop profile={profile} theme={theme} />
+                        <ProfileAbout profile={profile} theme={theme} />
+                        <div className={`profile-exp px-5 ${theme.background2}`}>
+                            <h4 className={`${theme.brandText2}`}>Experience</h4>
                             {profile.experience.length > 0 ? (
                                 <Fragment>
                                     {profile.experience.map((experience) => (
-                                        <ProfileExperience key={experience._id} experience={experience} />
+                                        <ProfileExperience key={experience._id} experience={experience} theme={theme} />
                                     ))}
                                 </Fragment>
                             ) : (
-                                <h4>No experience credentials</h4>
+                                <h5>No experience credentials</h5>
                             )}
                         </div>
 
-                        <div className="profile-edu bg-white p-2">
-                            <h2 className="text-primary">Education</h2>
+                        <div className={`profile-edu px-5 ${theme.background2}`}>
+                            <h4 className={`${theme.brandText2}`}>Education</h4>
                             {profile.education.length > 0 ? (
                                 <Fragment>
                                     {profile.education.map((education) => (
-                                        <ProfileEducation key={education._id} education={education} />
+                                        <ProfileEducation key={education._id} education={education} theme={theme} />
                                     ))}
                                 </Fragment>
                             ) : (
-                                <h4>No education credentials</h4>
+                                <h5>No education credentials</h5>
                             )}
                         </div>
 
@@ -70,11 +70,13 @@ Profile.propTypes = {
     getProfileById: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     profile: state.profile,
     auth: state.auth,
+    theme: state.theme,
 });
 
 export default connect(mapStateToProps, { getProfileById })(Profile);

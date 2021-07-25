@@ -7,16 +7,17 @@ const ProfileAbout = ({
         skills,
         user: { name },
     },
+    theme,
 }) => (
-    <div className="profile-about bg-light p-2">
+    <div className={`profile-about p-4 ${theme.background3}`}>
         {bio && (
             <Fragment>
-                <h2 className="text-primary">{name.trim().split(" ")[0]}s Bio</h2>
+                <h5 className={`${theme.brandText2}`}>{name.trim().split(" ")[0]}s Bio</h5>
                 <p>{bio}</p>
-                <div className="line" />
+                <div className={`line ${theme.background1}`} />
             </Fragment>
         )}
-        <h2 className="text-primary">Skill Set</h2>
+        <h5 className={`${theme.brandText2}`}>Skill Set</h5>
         <div className="skills">
             {skills.map((skill, index) => (
                 <div key={index} className="p-1">
@@ -29,6 +30,7 @@ const ProfileAbout = ({
 
 ProfileAbout.propTypes = {
     profile: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 export default ProfileAbout;
