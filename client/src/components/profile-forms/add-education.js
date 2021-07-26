@@ -104,7 +104,7 @@ const AddEducation = ({ addEducation, history, theme }) => {
                         className={`${theme.textWhite}`}
                     />
                 </div>
-                <input className={`${theme.textWhite}`} type="submit" className={`btn my-1 mr-2 ${theme.primary}`} />
+                <input type="submit" className={`btn my-1 mr-2 ${theme.primary} ${theme.textWhite}`} />
                 <Link className={`btn my-1 mr-2 ${theme.primaryVariant}`} to="/dashboard">
                     Go Back
                 </Link>

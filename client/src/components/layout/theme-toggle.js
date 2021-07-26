@@ -21,10 +21,10 @@ const ThemeToggle = ({ theme, setTheme }) => {
             <div className={`toggle ${isEnabled ? "enabled" : "disabled"} ${theme.primary} ${theme.themeName}`}>
                 <span className="hidden">{isEnabled ? "Enable" : "Disable"}</span>
                 <div className="icons">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
+                    <i className="fas fa-sun"></i>
+                    <i className="fas fa-moon"></i>
                 </div>
-                <input id="toggle" name="toggle" type="checkbox" checked={isEnabled} onClick={onClick} />
+                <input id="toggle" name="toggle" type="checkbox" defaultChecked={isEnabled} onClick={onClick} />
             </div>
         </label>
     );
