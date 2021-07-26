@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost } from "../../actions/post";
 
-const PostForm = ({ addPost }) => {
+const PostForm = ({ addPost, theme }) => {
     const [text, setText] = useState("");
 
     return (
         <div className="post-form">
-            <div className="bg-primary p">
-                <h3>Say Something...</h3>
+            <div className={``}>
+                <h5 className={`${theme.background2} mb-4 py-2 pl-2`}>Share a post or start a discussion...</h5>
             </div>
             <form
                 className="form my-1"
@@ -27,8 +27,9 @@ const PostForm = ({ addPost }) => {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     required
+                    className={`${theme.textWhite}`}
                 />
-                <input type="submit" className="btn btn-dark my-1" value="Submit" />
+                <input type="submit" className={`btn my-4 mr-2 ${theme.primary} ${theme.textWhite}`} />
             </form>
         </div>
     );

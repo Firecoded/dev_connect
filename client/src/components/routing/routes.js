@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Register from "../auth/register";
 import Login from "../auth/login";
 import Alert from "../layout/alert";
@@ -14,9 +16,9 @@ import Post from "../post/post";
 import NotFound from "../layout/not-found";
 import PrivateRoute from "../routing/private-route";
 
-const Routes = (props) => {
+const Routes = ({ theme }) => {
     return (
-        <section className="container">
+        <section className={`container ${theme.background1} ${theme.textWhite}`}>
             <Alert />
             <Switch>
                 <Route exact path="/register" component={Register} />
@@ -36,4 +38,12 @@ const Routes = (props) => {
     );
 };
 
-export default Routes;
+Routes.propTypes = {
+    theme: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    theme: state.theme,
+});
+
+export default connect(mapStateToProps, {})(Routes);

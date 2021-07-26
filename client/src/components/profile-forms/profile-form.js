@@ -19,7 +19,7 @@ const initialState = {
     instagram: "",
 };
 
-const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentProfile, history }) => {
+const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentProfile, history, theme }) => {
     const [formData, setFormData] = useState(initialState);
 
     const creatingProfile = useRouteMatch("/create-profile");
@@ -65,15 +65,22 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
 
     return (
         <Fragment>
-            <h1 className="large text-primary">{creatingProfile ? "Create Your Profile" : "Edit Your Profile"}</h1>
+            <h3 className={`my-3 mb-3 mt-4 ${theme.brandText2}`}>
+                {creatingProfile ? "Create Your Profile" : "Edit Your Profile"}
+            </h3>
             <p className="lead">
                 <i className="fas fa-user" />
                 {creatingProfile ? ` Let's get some information to make your` : " Add some changes to your profile"}
             </p>
-            <small>* = required field</small>
+            <div>* = required field</div>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-group">
-                    <select name="status" value={status} onChange={onChange}>
+                    <select
+                        name="status"
+                        value={status}
+                        onChange={onChange}
+                        className={`${theme.textWhite} ${theme.background1}`}
+                    >
                         <option>* Select Professional Status</option>
                         <option value="Developer">Developer</option>
                         <option value="Junior Developer">Junior Developer</option>
@@ -87,23 +94,52 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                     <small className="form-text">Give us an idea of where you are at in your career</small>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="Company" name="company" value={company} onChange={onChange} />
+                    <input
+                        className={`${theme.textWhite}`}
+                        type="text"
+                        placeholder="Company"
+                        name="company"
+                        value={company}
+                        onChange={onChange}
+                    />
                     <small className="form-text">Could be your own company or one you work for</small>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="Website" name="website" value={website} onChange={onChange} />
+                    <input
+                        className={`${theme.textWhite}`}
+                        type="text"
+                        placeholder="Website"
+                        name="website"
+                        value={website}
+                        onChange={onChange}
+                    />
                     <small className="form-text">Could be your own or a company website</small>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="Location" name="location" value={location} onChange={onChange} />
+                    <input
+                        className={`${theme.textWhite}`}
+                        type="text"
+                        placeholder="Location"
+                        name="location"
+                        value={location}
+                        onChange={onChange}
+                    />
                     <small className="form-text">City & state suggested (eg. Boston, MA)</small>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="* Skills" name="skills" value={skills} onChange={onChange} />
+                    <input
+                        className={`${theme.textWhite}`}
+                        type="text"
+                        placeholder="* Skills"
+                        name="skills"
+                        value={skills}
+                        onChange={onChange}
+                    />
                     <small className="form-text">Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)</small>
                 </div>
                 <div className="form-group">
                     <input
+                        className={`${theme.textWhite}`}
                         type="text"
                         placeholder="Github Username"
                         name="githubusername"
@@ -114,8 +150,15 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                         If you want your latest repos and a Github link, include your username
                     </small>
                 </div>
-                <div className="form-group">
-                    <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={onChange} />
+                <div className="form-group input-field">
+                    <textarea
+                        placeholder="A short bio of yourself"
+                        name="bio"
+                        value={bio}
+                        onChange={onChange}
+                        className={`${theme.textWhite} materialize-textarea`}
+                    />
+                    <label for="textarea1"></label>
                     <small className="form-text">Tell us a little about yourself</small>
                 </div>
 
@@ -123,11 +166,11 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                     <button
                         onClick={() => toggleSocialInputs(!displaySocialInputs)}
                         type="button"
-                        className="btn btn-light"
+                        className={`btn my-1 mr-2 ${theme.primaryVariant}`}
                     >
                         Add Social Network Links
                     </button>
-                    <span>Optional</span>
+                    <span>* Optional</span>
                 </div>
 
                 {displaySocialInputs && (
@@ -135,6 +178,7 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                         <div className="form-group social-input">
                             <i className="fab fa-twitter fa-2x" />
                             <input
+                                className={`${theme.textWhite}`}
                                 type="text"
                                 placeholder="Twitter URL"
                                 name="twitter"
@@ -146,6 +190,7 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                         <div className="form-group social-input">
                             <i className="fab fa-facebook fa-2x" />
                             <input
+                                className={`${theme.textWhite}`}
                                 type="text"
                                 placeholder="Facebook URL"
                                 name="facebook"
@@ -157,6 +202,7 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                         <div className="form-group social-input">
                             <i className="fab fa-youtube fa-2x" />
                             <input
+                                className={`${theme.textWhite}`}
                                 type="text"
                                 placeholder="YouTube URL"
                                 name="youtube"
@@ -168,6 +214,7 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                         <div className="form-group social-input">
                             <i className="fab fa-linkedin fa-2x" />
                             <input
+                                className={`${theme.textWhite}`}
                                 type="text"
                                 placeholder="Linkedin URL"
                                 name="linkedin"
@@ -179,6 +226,7 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                         <div className="form-group social-input">
                             <i className="fab fa-instagram fa-2x" />
                             <input
+                                className={`${theme.textWhite}`}
                                 type="text"
                                 placeholder="Instagram URL"
                                 name="instagram"
@@ -189,8 +237,8 @@ const ProfileForm = ({ profile: { profile, loading }, createProfile, getCurrentP
                     </Fragment>
                 )}
 
-                <input type="submit" className="btn btn-primary my-1" />
-                <Link className="btn btn-light my-1" to="/dashboard">
+                <input type="submit" className={`btn my-1 mr-2 ${theme.primary} ${theme.textWhite}`} />
+                <Link className={`btn my-1 mr-2 ${theme.primaryVariant}`} to="/dashboard">
                     Go Back
                 </Link>
             </form>
@@ -202,10 +250,12 @@ ProfileForm.propTypes = {
     createProfile: PropTypes.func.isRequired,
     getCurrentProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     profile: state.profile,
+    theme: state.theme,
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(ProfileForm);
