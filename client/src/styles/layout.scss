@@ -7,6 +7,10 @@
     transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
+.transition-override {
+    transition: background-color 0.2s ease-out, color 0.2s ease-out !important;
+}
+
 body {
     font-family: "Raleway", sans-serif;
     font-size: 1rem;

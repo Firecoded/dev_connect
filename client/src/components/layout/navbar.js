@@ -9,22 +9,22 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
     const authLinks = (
         <ul className="d-flex align-items-center">
             <li>
-                <Link to="/profiles" className="p-0 px-2">
+                <Link to="/profiles" className="p-0 px-2 transition-override">
                     Developers
                 </Link>
             </li>
             <li>
-                <Link to="/posts" className="p-0 pr-2">
+                <Link to="/posts" className="p-0 pr-2 transition-override">
                     Posts
                 </Link>
             </li>
             <li>
-                <Link to="/dashboard" className="d-flex align-items-center p-0 px-2 hide-sm">
+                <Link to="/dashboard" className="d-flex align-items-center p-0 px-2 hide-sm transition-overridev">
                     <i className="fas fa-user valign-wrapper mr-1" /> <span className="hide-sm">Dashboard</span>
                 </Link>
             </li>
             <li>
-                <a onClick={logout} href="#!" className="d-flex align-items-center p-0 px-2">
+                <a onClick={logout} href="#!" className="d-flex align-items-center p-0 px-2 transition-override">
                     <i className="fas fa-sign-out-alt valign-wrapper mr-1" /> <span className="hide-sm">Logout</span>
                 </a>
             </li>
@@ -34,17 +34,17 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
     const guestLinks = (
         <ul className="d-flex align-items-center">
             <li>
-                <Link to="/profiles" className="p-0 px-2">
+                <Link to="/profiles" className="p-0 px-2 transition-override">
                     Developers
                 </Link>
             </li>
             <li>
-                <Link to="/register" className="p-0 px-2">
+                <Link to="/register" className="p-0 px-2 transition-override">
                     Register
                 </Link>
             </li>
             <li>
-                <Link to="/login" className="p-0 px-2 pr-1">
+                <Link to="/login" className="p-0 px-2 pr-1 transition-override">
                     Login
                 </Link>
             </li>
@@ -71,7 +71,7 @@ const Navbar = ({ auth: { isAuthenticated }, theme, logout }) => {
     return (
         <Fragment>
             <nav className={`navbar ${theme.background2} ${theme.textWhite}`}>
-                <Link to="/" className="">
+                <Link to="/" className="transition-override">
                     {logo()}
                 </Link>
                 <span className="d-flex align-items-center right">
