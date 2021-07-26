@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addComment } from "../../actions/post";
 
-const CommentForm = ({ postId, addComment }) => {
+const CommentForm = ({ postId, addComment, theme }) => {
     const [text, setText] = useState("");
 
     return (
         <div className="post-form">
-            <div className="bg-primary p">
-                <h3>Leave a Comment</h3>
+            <div className={``}>
+                <h5 className={`${theme.background2} mb-4 py-2 pl-2`}>Leave a Comment...</h5>
             </div>
             <form
                 className="form my-1"
@@ -23,12 +23,13 @@ const CommentForm = ({ postId, addComment }) => {
                     name="text"
                     cols="30"
                     rows="5"
-                    placeholder="Comment the post"
+                    placeholder="Comment on this post"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     required
+                    className={`${theme.textWhite}`}
                 />
-                <input type="submit" className="btn btn-dark my-1" value="Submit" />
+                <input type="submit" className={`btn my-4 mr-2 ${theme.primary} ${theme.textWhite}`} />
             </form>
         </div>
     );

@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import formatDate from "../../utils/formatDate";
 
-const ProfileEducation = ({ education: { school, degree, fieldofstudy, current, to, from, description } }) => (
+const ProfileEducation = ({ education: { school, degree, fieldofstudy, current, to, from, description }, theme }) => (
     <div>
-        <h3 className="text-dark">{school}</h3>
+        <h5 className="text-dark">{school}</h5>
         <p>
             {formatDate(from)} - {to ? formatDate(to) : "Now"}
         </p>
@@ -22,6 +22,7 @@ const ProfileEducation = ({ education: { school, degree, fieldofstudy, current, 
 
 ProfileEducation.propTypes = {
     education: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 export default ProfileEducation;

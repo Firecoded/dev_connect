@@ -5,19 +5,19 @@ import { connect } from "react-redux";
 import formatDate from "../../utils/formatDate";
 import { deleteComment } from "../../actions/post";
 
-const CommentItem = ({ postId, comment: { _id, text, name, avatar, user, date }, auth, deleteComment }) => (
+const CommentItem = ({ postId, comment: { _id, text, name, avatar, user, date }, auth, deleteComment, theme }) => (
     <div className="post bg-white p-1 my-1">
-        <div>
+        <div className="mb-2">
             <Link to={`/profile/${user}`}>
-                <img className="round-img" src={avatar} alt="" />
-                <h4>{name}</h4>
+                <img className="round-img mt-2" src={avatar} alt="" />
+                <h5 className="mt-2">{name}</h5>
             </Link>
         </div>
         <div>
-            <p className="my-1">{text}</p>
-            <p className="post-date">Posted on {formatDate(date)}</p>
+            <p className="my-1 mb-4">{text}</p>
+            <p className="post-date mb-2">Posted on {formatDate(date)}</p>
             {!auth.loading && user === auth.user._id && (
-                <button onClick={() => deleteComment(postId, _id)} type="button" className="btn btn-danger">
+                <button onClick={() => deleteComment(postId, _id)} type="button" className={`btn ${theme.danger}`}>
                     <i className="fas fa-times" />
                 </button>
             )}
@@ -30,10 +30,12 @@ CommentItem.propTypes = {
     comment: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     deleteComment: PropTypes.func.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     auth: state.auth,
+    theme: state.theme,
 });
 
 export default connect(mapStateToProps, { deleteComment })(CommentItem);

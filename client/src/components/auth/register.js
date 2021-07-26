@@ -5,7 +5,7 @@ import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-const Register = ({ setAlert, register, isAuthenticated }) => {
+const Register = ({ setAlert, register, isAuthenticated, theme }) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -32,19 +32,33 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
     return (
         <Fragment>
-            <h1 className="large text-primary">Sign Up</h1>
+            <h1 className={`large ${theme.brandText1}`}>Sign Up</h1>
             <p className="lead">
                 <i className="fas fa-user" /> Create Your Account
             </p>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-group">
-                    <input type="text" placeholder="Name" name="name" value={name} onChange={onChange} />
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        name="name"
+                        value={name}
+                        onChange={onChange}
+                        className={`${theme.textWhite} px-2`}
+                    />
                 </div>
                 <div className="form-group">
-                    <input type="email" placeholder="Email Address" name="email" value={email} onChange={onChange} />
-                    <small className="form-text">
+                    <input
+                        type="email"
+                        placeholder="Email Address"
+                        name="email"
+                        value={email}
+                        onChange={onChange}
+                        className={`${theme.textWhite} px-2`}
+                    />
+                    <span className="form-text ml-1">
                         This site uses Gravatar so if you want a profile image, use a Gravatar email
-                    </small>
+                    </span>
                 </div>
                 <div className="form-group">
                     <input
@@ -53,6 +67,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         name="password"
                         value={password}
                         onChange={onChange}
+                        className={`${theme.textWhite} px-2`}
                     />
                 </div>
                 <div className="form-group">
@@ -62,12 +77,16 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         name="password2"
                         value={password2}
                         onChange={onChange}
+                        className={`${theme.textWhite} px-2`}
                     />
                 </div>
-                <input type="submit" className="btn btn-primary" value="Register" />
+                <input type="submit" className={`btn ${theme.primary}`} value="Register" />
             </form>
-            <p className="my-1">
-                Already have an account? <Link to="/login">Sign In</Link>
+            <p className="my-1 mt-2">
+                Already have an account?{" "}
+                <Link to="/login" className={`${theme.brandText1}`}>
+                    Sign In
+                </Link>
             </p>
         </Fragment>
     );
@@ -77,10 +96,12 @@ Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool,
+    theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
+    theme: state.theme,
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);
