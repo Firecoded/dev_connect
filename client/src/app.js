@@ -15,9 +15,6 @@ import "./styles/styles.scss";
 
 const App = () => {
     useEffect(() => {
-        //set default theme
-        localStorage.setItem("themeOnLoad", "dark");
-        document.body.classList.add("dark");
         // check for token in LS
         if (localStorage.token) {
             setAuthToken(localStorage.token);

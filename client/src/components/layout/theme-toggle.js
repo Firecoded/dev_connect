@@ -9,6 +9,8 @@ const ThemeToggle = ({ theme, setTheme }) => {
     useEffect(() => {
         if (themeOnLoad) {
             setTheme(themeOnLoad);
+        } else {
+            setTheme("dark");
         }
     }, [setTheme]);
 
