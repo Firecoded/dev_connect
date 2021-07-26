@@ -2,6 +2,8 @@
 
 Social media app for developers to connect and chat
 
+[App Demo](https://stormy-springs-76589.herokuapp.com/)
+
 ## Tech
 
 #### Front-end
