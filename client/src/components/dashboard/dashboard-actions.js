@@ -6,19 +6,19 @@ export const DashboardActions = ({ id, theme }) => {
         <div className="dash-buttons mb-3">
             {id ? (
                 <Link to={`/profile/${id}`} className={`btn btn-small my-2 mr-2 ${theme.primaryVariant}`}>
-                    <i className="fas fa-user-circle text-primary mr-1"></i> View Profile
+                    <i className="fas fa-user-circle mr-1"></i> View Profile
                 </Link>
             ) : (
                 <Fragment />
             )}
             <Link to="/edit-profile" className={`btn btn-small my-2 mr-2  ${theme.primaryVariant}`}>
-                <i className="fas fa-user-cog text-primary mr-1"></i> Edit Profile
+                <i className="fas fa-user-cog mr-1"></i> Edit Profile
             </Link>
             <Link to="/add-experience" className={`btn btn-small my-2 mr-2  ${theme.primaryVariant}`}>
-                <i className="fab fa-black-tie text-primary mr-1"></i> Add Experience
+                <i className="fab fa-black-tie mr-1"></i> Add Experience
             </Link>
             <Link to="/add-education" className={`btn btn-small my-2 mr-2  ${theme.primaryVariant}`}>
-                <i className="fas fa-graduation-cap text-primary mr-1"></i> Add Education
+                <i className="fas fa-graduation-cap mr-1"></i> Add Education
             </Link>
         </div>
     );

@@ -32,7 +32,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match, theme }) =
                     <div className="profile-grid my-1 mb-3">
                         <ProfileTop profile={profile} theme={theme} />
                         <ProfileAbout profile={profile} theme={theme} />
-                        <div className={`profile-exp px-5 ${theme.background2}`}>
+                        <div className={`profile-exp px-3 ${theme.background2}`}>
                             <h4 className={`${theme.brandText2}`}>Experience</h4>
                             {profile.experience.length > 0 ? (
                                 <Fragment>
@@ -45,7 +45,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth, match, theme }) =
                             )}
                         </div>
 
-                        <div className={`profile-edu px-5 ${theme.background2}`}>
+                        <div className={`profile-edu px-3 ${theme.background2}`}>
                             <h4 className={`${theme.brandText2}`}>Education</h4>
                             {profile.education.length > 0 ? (
                                 <Fragment>

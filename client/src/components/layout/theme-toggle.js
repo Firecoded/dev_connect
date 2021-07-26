@@ -6,7 +6,6 @@ import { setTheme } from "../../actions/theme";
 const ThemeToggle = ({ theme, setTheme }) => {
     const themeOnLoad = localStorage.getItem("themeOnLoad");
     const [isEnabled, setIsEnabled] = useState(themeOnLoad && themeOnLoad === "dark" ? true : false);
-    console.log("THEME", theme);
     useEffect(() => {
         if (themeOnLoad) {
             setTheme(themeOnLoad);
@@ -18,7 +17,7 @@ const ThemeToggle = ({ theme, setTheme }) => {
         setIsEnabled(!isEnabled);
     };
     return (
-        <label className="toggle-wrapper pr-2" htmlFor="toggle">
+        <label className="toggle-wrapper mr-2" htmlFor="toggle">
             <div className={`toggle ${isEnabled ? "enabled" : "disabled"} ${theme.primary} ${theme.themeName}`}>
                 <span className="hidden">{isEnabled ? "Enable" : "Disable"}</span>
                 <div className="icons">

@@ -44,7 +44,7 @@ const Register = ({ setAlert, register, isAuthenticated, theme }) => {
                         name="name"
                         value={name}
                         onChange={onChange}
-                        className="px-2"
+                        className={`${theme.textWhite} px-2`}
                     />
                 </div>
                 <div className="form-group">
@@ -54,7 +54,7 @@ const Register = ({ setAlert, register, isAuthenticated, theme }) => {
                         name="email"
                         value={email}
                         onChange={onChange}
-                        className="px-2"
+                        className={`${theme.textWhite} px-2`}
                     />
                     <span className="form-text ml-1">
                         This site uses Gravatar so if you want a profile image, use a Gravatar email
@@ -67,7 +67,7 @@ const Register = ({ setAlert, register, isAuthenticated, theme }) => {
                         name="password"
                         value={password}
                         onChange={onChange}
-                        className="px-2"
+                        className={`${theme.textWhite} px-2`}
                     />
                 </div>
                 <div className="form-group">
@@ -77,7 +77,7 @@ const Register = ({ setAlert, register, isAuthenticated, theme }) => {
                         name="password2"
                         value={password2}
                         onChange={onChange}
-                        className="px-2"
+                        className={`${theme.textWhite} px-2`}
                     />
                 </div>
                 <input type="submit" className={`btn ${theme.primary}`} value="Register" />

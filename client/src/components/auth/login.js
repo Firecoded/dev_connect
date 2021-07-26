@@ -38,7 +38,7 @@ const Login = ({ login, isAuthenticated, theme }) => {
                         value={email}
                         onChange={onChange}
                         required
-                        className="px-2"
+                        className={`${theme.textWhite} px-2`}
                     />
                 </div>
                 <div className="form-group">
@@ -49,7 +49,7 @@ const Login = ({ login, isAuthenticated, theme }) => {
                         value={password}
                         onChange={onChange}
                         minLength="6"
-                        className="px-2"
+                        className={`${theme.textWhite} px-2`}
                     />
                 </div>
                 <input type="submit" value="Login" className={`btn ${theme.primary}`} />

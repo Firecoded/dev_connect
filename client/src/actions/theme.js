@@ -9,7 +9,7 @@ export const THEMES = {
         background1: "grey darken-4",
         background2: "blue-grey darken-4",
         background3: "grey darken-3",
-        danger: "red lighten-1",
+        danger: "red darken-2",
         success: "green darken-3",
         info: "blue lighten-2",
         textBlack: "black-text",
@@ -22,14 +22,14 @@ export const THEMES = {
         brandText1: "deep-purple-text text-accent-1",
     },
     light: {
-        primary: "deep-purple lighten-1",
-        primaryVariant: "indigo lighten-1",
+        primary: "deep-purple lighten-2",
+        primaryVariant: "indigo lighten-2",
         secondary: "teal accent-2",
         secondaryVariant: "teal accent-2",
-        background1: "grey lighten-1",
-        background2: "blue-grey darken-1",
-        background3: "grey lighten-2",
-        danger: "red lighten-1",
+        background1: "grey lighten-3",
+        background2: "blue-grey lighten-2",
+        background3: "grey",
+        danger: "red accent-2",
         success: "green lighten-3",
         info: "blue lighten-2",
         textBlack: "white-text",
@@ -38,8 +38,8 @@ export const THEMES = {
         text2: "",
         text3: "",
         themeName: "light",
-        brandText2: "teal-text text-darken-2",
-        brandText1: "deep-purple-text text-darken-1",
+        brandText2: "teal-text text-darken-4",
+        brandText1: "deep-purple-text text-darken-2",
     },
 };
 
@@ -52,6 +52,7 @@ export const setTheme = (themeName) => (dispatch) => {
             document.body.classList.add(c);
         }
     });
+    document.body.classList.add(themeData.themeName);
     dispatch({
         type: SET_THEME,
         payload: { ...themeData },

@@ -58,10 +58,6 @@ textarea {
     text-align: center;
 }
 
-.text-primary {
-    // color: var(--primary-color);
-}
-
 .text-dark {
     // color: var(--dark-color);
 }
@@ -172,7 +168,7 @@ button {
 }
 
 .navbar a:hover {
-    filter: drop-shadow(0 0 8px black);
+    filter: drop-shadow(0 0 3px gray);
 }
 
 .navbar .welcome span {
@@ -394,5 +390,25 @@ button {
     color: white;
 }
 .light.toggle .icons i {
+    color: black;
+}
+
+.dark .btn,
+.btn-large,
+.btn-small {
+    color: white;
+}
+
+.light .btn,
+.btn-large,
+.btn-small {
+    color: black;
+}
+
+.dark nav ul a {
+    color: white;
+}
+
+.light nav ul a {
     color: black;
 }
