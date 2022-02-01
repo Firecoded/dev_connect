@@ -30,7 +30,7 @@ const ProfileTop = ({
                     ? Object.entries(social)
                           .filter(([_, value]) => value)
                           .map(([key, value]) => (
-                              <a key={key} href={value} target="_blank" rel="noopener noreferrer">
+                              <a key={key} href={value} target="_blank" rel="noopener noreferrer" className="pl-2">
                                   <i className={`fab fa-${key} fa-2x`}></i>
                               </a>
                           ))
