@@ -12,7 +12,7 @@ const ThemeToggle = ({ theme, setTheme }) => {
         } else {
             setTheme("dark");
         }
-    }, [setTheme]);
+    }, [themeOnLoad]);
 
     const onClick = () => {
         setTheme(theme.themeName === "light" ? "dark" : "light");
