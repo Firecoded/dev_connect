@@ -3,11 +3,20 @@ dotenv.config();
 const express = require("express");
 const connectDB = require("./config/db");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 
 // connect mongodb
 connectDB();
+
+// allow cross origin
+app.use(
+  cors({
+    origin: "https://dev-hub-plum.vercel.app",
+    credentials: true,
+  })
+);
 
 // init middleware
 
