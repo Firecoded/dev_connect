@@ -1,107 +1,106 @@
 # DevHub
 
-Social media app for developers to connect and chat
+A full-stack social media platform for developers to connect, create profiles, share posts, and collaborate. Features GitHub integration, persistent auth, and responsive UI.
 
-[App Demo](https://salty-caverns-71357.herokuapp.com/)
+🔗 [Live Demo (Frontend on Vercel, Backend on Render)](https://dev-hub-plum.vercel.app)
 
-## Tech
-
-#### Front-end
-
-ReactJS, Redux, MaterializeCSS, SASS
-
-#### Backend
-
-Node, Express, Mongoose, JWT, API calls to GitHub and Gravatar
-
-#### Deployment
-
-Client and server hosted on Heroku, MongoDB hosted on atlas
+⚠️ _Initial load may take ~30 seconds due to free-tier backend cold start._
 
 ---
 
-## Setup
+## 🛠 Tech Stack
 
-#### - Clone repo and cd into project root
+### Frontend
 
-#### - Add a .env with the following:
+-   ReactJS
+-   Redux
+-   SASS
+-   MaterializeCSS
 
+### Backend
+
+-   Node.js
+-   Express
+-   MongoDB (via Atlas)
+-   Mongoose
+-   JWT Auth
+-   GitHub & Gravatar API integrations
+
+### Deployment
+
+-   **Frontend:** [Vercel](https://vercel.com)
+-   **Backend:** [Render](https://render.com)
+-   **Database:** MongoDB Atlas
+
+---
+
+## 🚀 Setup Instructions (Local)
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/Firecoded/dev_connect.git
+cd dev_connect
 ```
-MONGO_URI="<your_mongoDB_Atlas_uri_with_credentials>"
-JWT_SECRET=yoursecret
-GITHUB_TOKEN=yourgithubaccesstoken
+
+### 2. Add `.env` in the root directory
+
+```env
+MONGO_URI=<your MongoDB Atlas URI>
+JWT_SECRET=your_jwt_secret
+GITHUB_TOKEN=your_github_token
 ```
 
-#### Install server dependencies
+### 3. Install backend dependencies
 
 ```bash
 npm install
 ```
 
-#### Install client dependencies
+### 4. Install frontend dependencies
 
 ```bash
 cd client
 npm install
 ```
 
-#### Run both Express & React from root
+### 5. Run both servers in dev mode (from project root)
 
 ```bash
 npm run dev
 ```
 
-#### Build for production
+---
+
+## 🧪 Local Production Build
+
+### 1. Build frontend
 
 ```bash
 cd client
 npm run build
 ```
 
-#### Test production before deploy
-
-After running a build in the client, cd into the root of the project.  
-And run...
-
-Linux/Unix
+### 2. Serve with Node in production mode
 
 ```bash
+cd ..
 NODE_ENV=production node server.js
 ```
 
-Windows Cmd Prompt or Powershell
+### 3. Visit
 
-```bash
-$env:NODE_ENV="production"
-node server.js
-```
+[http://localhost:5001](http://localhost:5001)
 
-Check in browser on [http://localhost:5000/](http://localhost:5000/)
+---
 
-## Deploy
+## 🌐 Deployment Notes
 
-Download and [install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+-   **Frontend is deployed on [Vercel](https://vercel.com)**
 
-Create your Heroku project
+    -   Simply link the repo and configure `REACT_APP_API_URL` in Vercel project settings to point to your backend (e.g. `https://your-api.onrender.com`)
 
-```bash
-heroku create
-```
-
-Go to your newly created Heroku app and [configure your environment variables](https://devcenter.heroku.com/articles/config-vars)
-
-Now Heroku will have the config it needs to build the project.
-
-Add a Heroku branch with your unique heroku app id
-
-```
-heroku git:remote -a random-heroku-61413
-```
-
-Push your branch to deploy
-
-```bash
-git push heroku <yourbranch>:main
-```
-
-> **Don't forget to make sure your production database is not whitelisted in MongoDB Atlas, otherwise the database connection will fail and your app will crash.**
+-   **Backend is deployed on [Render](https://render.com)**
+    -   Add `MONGO_URI`, `JWT_SECRET`, and `GITHUB_TOKEN` as environment variables
+    -   Ensure MongoDB Atlas IP whitelist allows traffic from Render
+    -   Render's free tier may cause a cold-start delay on first request
